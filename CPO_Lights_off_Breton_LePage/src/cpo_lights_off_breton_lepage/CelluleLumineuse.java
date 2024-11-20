@@ -1,6 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/* Lila Breton, Clarisse Le Page TDC
+* 20 novembre 2024
  */
 package cpo_lights_off_breton_lepage;
 
@@ -14,8 +13,8 @@ public class CelluleLumineuse {
     
     private boolean etat; // true: allumée, false: éteinte
     
-    public CelluleLumineuse(boolean etat) {
-        this.etat = etat;
+    public CelluleLumineuse() {
+        this.etat = false;
     }
     
     // Inverse l'état de la cellule
