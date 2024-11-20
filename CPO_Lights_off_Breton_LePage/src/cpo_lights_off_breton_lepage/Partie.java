@@ -1,6 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/*Lila Breton, Clarisse Le Page TDC
+* 20 novembre 2024
  */
 package cpo_lights_off_breton_lepage;
 
