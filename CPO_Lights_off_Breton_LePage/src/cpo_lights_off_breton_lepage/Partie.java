@@ -19,7 +19,6 @@ public class Partie {
     
     public void initialiserPartie(){
         
-        grille.melangerMatrice(10);
     }
     
     public void lancerPartie(){
