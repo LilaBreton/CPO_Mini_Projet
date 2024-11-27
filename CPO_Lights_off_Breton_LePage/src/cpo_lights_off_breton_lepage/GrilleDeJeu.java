@@ -74,7 +74,7 @@ public class GrilleDeJeu {
     public void melangerMatriceAleatoirement(int nbTours) {
         Random random = new Random();
         eteindreToutesLesCellules(); // Éteindre toutes les cellules avant de mélanger
-        for (int tour = 0; tour < nbTours; tour++) {
+        for (int i = 0; i < nbTours; i++) {
             int choix = random.nextInt(4); // 0: ligne, 1: colonne, 2: diagonale descendante, 3: diagonale montante
             switch (choix) {
                 case 0 -> activerLigneDeCellules(random.nextInt(nbLignes));
@@ -84,6 +84,11 @@ public class GrilleDeJeu {
             }
         }
     }
+    
+    public void activerLigneColonneOuDiagonaleAleatoire(){
+        
+    }
+    
     // Vérifier si toutes les cellules sont éteintes
     public boolean cellulesToutesEteintes() {
         for (int i = 0; i < nbLignes; i++) {
