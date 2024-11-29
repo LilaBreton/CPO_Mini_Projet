@@ -8,7 +8,6 @@ package cpo_lights_off_breton_lepage;
  * @author clale
  */
 public class Partie {
-    
     private int nbCoups;
     private GrilleDeJeu grille;
 
@@ -18,12 +17,14 @@ public class Partie {
     }
     
     public void initialiserPartie(){
-        
+        while (grille.cellulesToutesEteintes()!=false){
+            grille.melangerMatriceAleatoirement(1);;
+        }
     }
     
     public void lancerPartie(){
         
-      
+        
     }
     
     
