@@ -17,7 +17,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
      */
     int nbCoups;
     GrilleDeJeu grille;
-    
+
     public FenetrePrincipale() {
         initComponents();
 
@@ -28,20 +28,45 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
         for (int i = 0; i < nbLignes; i++) {
             for (int j = 0; j < nbColonnes; j++) {
-                CelluleGraphique bouton_cellule = new CelluleGraphique( grille.matriceCellules[i][j], 36,36);
+                CelluleGraphique bouton_cellule = new CelluleGraphique(grille.matriceCellules[i][j], 36, 36, i, j);
+                bouton_cellule.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        //a actions a declencher ...
+                        activerCelluleEtVoisines(bouton_cellule.i,bouton_cellule.j);
+                        PanneauGrille.repaint();
+                    }
+                });
                 PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
             }
         }
-        
+
         initialiserPartie();
     }
-    
-    
-    
+
     public void initialiserPartie() {
         grille.eteindreToutesLesCellules();
         grille.melangerMatriceAleatoirement(10);
     }
+    
+        private void activerCelluleEtVoisines(int ligne, int colonne) {
+        // Activer la cellule choisie
+        grille.matriceCellules[ligne][colonne].activerCellule();
+
+        // Activer les voisins si dans les limites
+        if (ligne > 0) {
+            grille.matriceCellules[ligne - 1][colonne].activerCellule(); // Haut
+        }
+        if (ligne < grille.nbLignes - 1) {
+            grille.matriceCellules[ligne + 1][colonne].activerCellule(); // Bas
+        }
+        if (colonne > 0) {
+            grille.matriceCellules[ligne][colonne - 1].activerCellule(); // Gauche
+        }
+        if (colonne < grille.nbColonnes - 1) {
+            grille.matriceCellules[ligne][colonne + 1].activerCellule(); // Droite
+        }
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,7 +102,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLigne0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLigne0ActionPerformed
-        
+
     }//GEN-LAST:event_btnLigne0ActionPerformed
 
     /**
@@ -95,27 +120,23 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
 
-}
+                }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FenetrePrincipale.class  
+            java.util.logging.Logger.getLogger(FenetrePrincipale.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FenetrePrincipale.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-} catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FenetrePrincipale.class  
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FenetrePrincipale.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-} catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FenetrePrincipale.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FenetrePrincipale.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FenetrePrincipale.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

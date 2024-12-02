@@ -13,12 +13,16 @@ import javax.swing.JButton;
 public class CelluleGraphique extends JButton {
     int largeur; // largeur en pixel de la cellule
     int hauteur; // hauteur en pixel de la cellule
+    int i;
+    int j;
     CelluleLumineuse celluleLumineuseAssociee;
     
     // constructeur (appelé depuis FenetrePrincipale)
-    public CelluleGraphique(CelluleLumineuse celluleLumineuseAssociee, int l,int h) {
+    public CelluleGraphique(CelluleLumineuse celluleLumineuseAssociee, int l,int h, int i, int j) {
         this.largeur = l;
         this.hauteur = h;
+        this.i = i;
+        this.j = j;
         this.celluleLumineuseAssociee = celluleLumineuseAssociee;
     }
     // Methode gérant le dessin de la cellule
