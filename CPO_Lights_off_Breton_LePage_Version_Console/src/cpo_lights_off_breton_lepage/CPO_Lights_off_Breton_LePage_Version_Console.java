@@ -7,7 +7,7 @@ package cpo_lights_off_breton_lepage;
  *
  * @author lilab
  */
-public class CPO_Lights_off_Breton_LePage {
+public class CPO_Lights_off_Breton_LePage_Version_Console {
 
     /**
      * @param args the command line arguments
