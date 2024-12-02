@@ -12,9 +12,9 @@ import java.util.Random;
  */
 public class GrilleDeJeu {
     // Création des attributs
-    private int nbLignes;
-    private int nbColonnes;
-    private CelluleLumineuse[][] matriceCellules;
+     int nbLignes;
+     int nbColonnes;
+     CelluleLumineuse[][] matriceCellules;
     
     // Creation de la méthode Grille de jeu
     public GrilleDeJeu(int p_nbLignes, int p_nbColonnes) {
@@ -131,8 +131,3 @@ public class GrilleDeJeu {
         return sb.toString();
     }
 }
-    
-    
-    
-    
-
