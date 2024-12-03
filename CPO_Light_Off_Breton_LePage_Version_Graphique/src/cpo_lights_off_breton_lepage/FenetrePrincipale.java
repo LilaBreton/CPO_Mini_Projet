@@ -62,7 +62,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         PanneauGrille.setBackground(new java.awt.Color(204, 204, 255));
         PanneauGrille.setPreferredSize(new java.awt.Dimension(700, 700));
         PanneauGrille.setVerifyInputWhenFocusTarget(false);
-        PanneauGrille.setLayout(new java.awt.GridLayout());
+        PanneauGrille.setLayout(new java.awt.GridLayout(1, 0));
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 500, 500));
 
         btnLigne0.setText("jButton1");
