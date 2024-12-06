@@ -31,9 +31,14 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 CelluleGraphique bouton_cellule = new CelluleGraphique(grille.matriceCellules[i][j], 36, 36, i, j);
                 bouton_cellule.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        //a actions a declencher ...
+                        //actions a declencher ...
                         activerCelluleEtVoisines(bouton_cellule.i,bouton_cellule.j);
                         PanneauGrille.repaint();
+                        nbCoups++;
+                        if (grille.cellulesToutesEteintes() == true){
+                            System.out.println("Felicitation vous avez gagne");
+                            System.out.println("Vous avez effectue  gagne");
+                        }
                     }
                 });
                 PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
