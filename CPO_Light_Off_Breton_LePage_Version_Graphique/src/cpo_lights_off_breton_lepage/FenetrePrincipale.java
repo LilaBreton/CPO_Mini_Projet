@@ -3,8 +3,12 @@
  */
 package cpo_lights_off_breton_lepage;
 
+import java.awt.Component;
 import java.awt.GridLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.BorderLayout;
 
 /**
  *
@@ -17,6 +21,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
      */
     int nbCoups;
     GrilleDeJeu grille;
+    JLabel lblMessageFin;
 
     public FenetrePrincipale() {
         initComponents();
@@ -25,6 +30,9 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         int nbColonnes = 3;
         this.grille = new GrilleDeJeu(nbLignes, nbColonnes);
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
+        lblMessageFin = new JLabel(""); // Label pour afficher le message de fin
+        lblMessageFin.setHorizontalAlignment(SwingConstants.CENTER);
+        this.add(lblMessageFin, BorderLayout.SOUTH);
 
         for (int i = 0; i < nbLignes; i++) {
             for (int j = 0; j < nbColonnes; j++) {
@@ -49,11 +57,26 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     }
 
     public void initialiserPartie() {
+        nbCoups = 0;
+        lblMessageFin.setText("");
         grille.eteindreToutesLesCellules();
         grille.melangerMatriceAleatoirement(10);
     }
     
-        private void activerCelluleEtVoisines(int ligne, int colonne) {
+    private void gererClicCellule(int ligne, int colonne, CelluleGraphique bouton) {
+        if (!grille.cellulesToutesEteintes()) {
+            activerCelluleEtVoisines(ligne, colonne);
+            PanneauGrille.repaint();
+            nbCoups++;
+
+            if (grille.cellulesToutesEteintes()) {
+                lblMessageFin.setText("Felicitations, vous avez gagne en " + nbCoups + " coups !");
+                desactiverTousLesBoutons();
+            }
+        }
+    }
+    
+    private void activerCelluleEtVoisines(int ligne, int colonne) {
         // Activer la cellule choisie
         grille.matriceCellules[ligne][colonne].activerCellule();
 
@@ -71,8 +94,17 @@ public class FenetrePrincipale extends javax.swing.JFrame {
             grille.matriceCellules[ligne][colonne + 1].activerCellule(); // Droite
         }
     }
-
-
+      
+    private void desactiverTousLesBoutons() {
+        for (Component component : PanneauGrille.getComponents()) {
+            if (component instanceof CelluleGraphique) {
+                component.setEnabled(false); // Désactiver chaque bouton
+            }
+        }
+    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
