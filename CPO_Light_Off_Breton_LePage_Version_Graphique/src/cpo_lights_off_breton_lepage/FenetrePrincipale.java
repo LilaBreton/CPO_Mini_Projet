@@ -21,8 +21,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     public FenetrePrincipale() {
         initComponents();
 
-        int nbLignes = 10;
-        int nbColonnes = 10;
+        int nbLignes = 3;
+        int nbColonnes = 3;
         this.grille = new GrilleDeJeu(nbLignes, nbColonnes);
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
 
