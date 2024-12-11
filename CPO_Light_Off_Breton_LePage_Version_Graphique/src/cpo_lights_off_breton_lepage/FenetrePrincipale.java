@@ -21,18 +21,15 @@ public class FenetrePrincipale extends javax.swing.JFrame {
      */
     int nbCoups;
     GrilleDeJeu grille;
-    JLabel lblMessageFin;
+    //JLabel lblMessageFin;
 
     public FenetrePrincipale() {
         initComponents();
 
-        int nbLignes = 3;
-        int nbColonnes = 3;
+        int nbLignes = 2;
+        int nbColonnes = 2;
         this.grille = new GrilleDeJeu(nbLignes, nbColonnes);
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
-        lblMessageFin = new JLabel(""); // Label pour afficher le message de fin
-        lblMessageFin.setHorizontalAlignment(SwingConstants.CENTER);
-        this.add(lblMessageFin, BorderLayout.SOUTH);
 
         for (int i = 0; i < nbLignes; i++) {
             for (int j = 0; j < nbColonnes; j++) {
@@ -49,13 +46,12 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
             }
         }
-
         initialiserPartie();
     }
 
     public void initialiserPartie() {
         nbCoups = 0;
-        lblMessageFin.setText("");
+        jLabel1.setText("");
         grille.eteindreToutesLesCellules();
         grille.melangerMatriceAleatoirement(10);
     }
@@ -88,7 +84,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     
     private void verifierEtGererVictoire() {
         if (grille.cellulesToutesEteintes()) {
-            lblMessageFin.setText("Felicitations, vous avez gagne en " + nbCoups + " coups !");
+            jLabel1.setText("Felicitations, vous avez gagne en " + nbCoups + " coups !");
             System.out.println("Felicitations, vous avez gagne !");
             System.out.println("Vous avez effectue " + nbCoups + " coups.");
             desactiverTousLesBoutons();
@@ -127,7 +123,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 500, 500));
 
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 530, 500, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
