@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 /**
  *
@@ -113,10 +114,13 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(800, 800));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PanneauGrille.setBackground(new java.awt.Color(204, 204, 255));
+        PanneauGrille.setBackground(new java.awt.Color(255, 255, 255));
+        PanneauGrille.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        PanneauGrille.setForeground(new java.awt.Color(255, 255, 255));
         PanneauGrille.setPreferredSize(new java.awt.Dimension(700, 700));
         PanneauGrille.setVerifyInputWhenFocusTarget(false);
         PanneauGrille.setLayout(new java.awt.GridLayout(1, 0));
