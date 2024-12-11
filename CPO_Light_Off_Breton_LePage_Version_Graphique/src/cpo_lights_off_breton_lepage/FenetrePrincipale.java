@@ -43,10 +43,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                         activerCelluleEtVoisines(bouton_cellule.i,bouton_cellule.j);
                         PanneauGrille.repaint();
                         nbCoups++;
-                        if (grille.cellulesToutesEteintes() == true){
-                            System.out.println("Felicitation vous avez gagne");
-                            System.out.println("Vous avez effectue  gagne");
-                        }
+                        verifierEtGererVictoire();
                     }
                 });
                 PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
@@ -63,17 +60,11 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         grille.melangerMatriceAleatoirement(10);
     }
     
-    private void gererClicCellule(int ligne, int colonne, CelluleGraphique bouton) {
-        if (!grille.cellulesToutesEteintes()) {
-            activerCelluleEtVoisines(ligne, colonne);
-            PanneauGrille.repaint();
-            nbCoups++;
-
-            if (grille.cellulesToutesEteintes()) {
-                lblMessageFin.setText("Felicitations, vous avez gagne en " + nbCoups + " coups !");
-                desactiverTousLesBoutons();
-            }
-        }
+    private void ClicCellule(int ligne, int colonne, CelluleGraphique bouton) {
+        activerCelluleEtVoisines(ligne, colonne);
+        PanneauGrille.repaint();
+        nbCoups++;
+        verifierEtGererVictoire();
     }
     
     private void activerCelluleEtVoisines(int ligne, int colonne) {
@@ -94,7 +85,16 @@ public class FenetrePrincipale extends javax.swing.JFrame {
             grille.matriceCellules[ligne][colonne + 1].activerCellule(); // Droite
         }
     }
-      
+    
+    private void verifierEtGererVictoire() {
+        if (grille.cellulesToutesEteintes()) {
+            lblMessageFin.setText("Felicitations, vous avez gagne en " + nbCoups + " coups !");
+            System.out.println("Felicitations, vous avez gagne !");
+            System.out.println("Vous avez effectue " + nbCoups + " coups.");
+            desactiverTousLesBoutons();
+        }
+    }
+    
     private void desactiverTousLesBoutons() {
         for (Component component : PanneauGrille.getComponents()) {
             if (component instanceof CelluleGraphique) {
@@ -102,7 +102,6 @@ public class FenetrePrincipale extends javax.swing.JFrame {
             }
         }
     }
-    
     
     
     /**
@@ -115,7 +114,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     private void initComponents() {
 
         PanneauGrille = new javax.swing.JPanel();
-        btnLigne0 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 800));
@@ -125,22 +124,13 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         PanneauGrille.setPreferredSize(new java.awt.Dimension(700, 700));
         PanneauGrille.setVerifyInputWhenFocusTarget(false);
         PanneauGrille.setLayout(new java.awt.GridLayout(1, 0));
-        getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 500, 500));
+        getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 500, 500));
 
-        btnLigne0.setText("jButton1");
-        btnLigne0.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLigne0ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnLigne0, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnLigne0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLigne0ActionPerformed
-
-    }//GEN-LAST:event_btnLigne0ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,6 +177,6 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanneauGrille;
-    private javax.swing.JButton btnLigne0;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
