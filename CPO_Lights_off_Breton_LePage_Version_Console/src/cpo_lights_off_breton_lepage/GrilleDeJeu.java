@@ -42,46 +42,41 @@ public class GrilleDeJeu {
         }
     }
     
-    // Activer une ligne spécifique
-    public void activerLigneDeCellules(int idLigne) {
-        for (int j = 0; j < nbColonnes; j++) {
-            matriceCellules[idLigne][j].activerCellule();
+    // Nouvelle méthode pour activer les cellules en croix
+    public void activerCroix(int ligne, int colonne) {
+        // Activer la cellule centrale
+        matriceCellules[ligne][colonne].activerCellule();
+
+        // Activer le haut si valide
+        if (ligne > 0) {
+            matriceCellules[ligne - 1][colonne].activerCellule();
+        }
+
+        // Activer le bas si valide
+        if (ligne < nbLignes - 1) {
+            matriceCellules[ligne + 1][colonne].activerCellule();
+        }
+
+        // Activer la gauche si valide
+        if (colonne > 0) {
+            matriceCellules[ligne][colonne - 1].activerCellule();
+        }
+
+        // Activer la droite si valide
+        if (colonne < nbColonnes - 1) {
+            matriceCellules[ligne][colonne + 1].activerCellule();
         }
     }
 
-    // Activer une colonne spécifique
-    public void activerColonneDeCellules(int idColonne) {
-        for (int i = 0; i < nbLignes; i++) {
-            matriceCellules[i][idColonne].activerCellule();
-        }
-    }
-
-    // Activer la diagonale descendante
-    public void activerDiagonaleDescendante() {
-        for (int i = 0; i < Math.min(nbLignes, nbColonnes); i++) {
-            matriceCellules[i][i].activerCellule();
-        }
-    }
-
-    // Activer la diagonale montante
-    public void activerDiagonaleMontante() {
-        for (int i = 0; i < Math.min(nbLignes, nbColonnes); i++) {
-            matriceCellules[i][nbColonnes - 1 - i].activerCellule();
-        }
-    }
 
     // Mélanger la matrice de manière aléatoire
     public void melangerMatriceAleatoirement(int nbTours) {
         Random random = new Random();
         eteindreToutesLesCellules(); // Éteindre toutes les cellules avant de mélanger
-        for (int i = 0; i < nbTours; i++) {
-            int choix = random.nextInt(4); // 0: ligne, 1: colonne, 2: diagonale descendante, 3: diagonale montante
-            switch (choix) {
-                case 0 -> activerLigneDeCellules(random.nextInt(nbLignes));
-                case 1 -> activerColonneDeCellules(random.nextInt(nbColonnes));
-                case 2 -> activerDiagonaleDescendante();
-                case 3 -> activerDiagonaleMontante();
-            }
+        for (int n = 0; n < nbTours; n++) {
+            int ligne = (int) (Math.random() * nbLignes);
+            int colonne = (int) (Math.random() * nbColonnes);
+            activerCroix(ligne, colonne); // Utilise la méthode activerCroix pour mélanger
         }
     }
     
