@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.BorderLayout;
-import java.awt.Color;
+
 
 /**
  *
@@ -22,10 +22,19 @@ public class FenetrePrincipale extends javax.swing.JFrame {
      */
     int nbCoups;
     GrilleDeJeu grille;
-    //JLabel lblMessageFin;
+    
 
     public FenetrePrincipale() {
         initComponents();
+        
+        // Configuration du bouton "Quitter"
+        jButton1.setText("Quitter");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                System.exit(0); // Ferme l'application
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 570, 100, 30));
 
         int nbLignes = 2;
         int nbColonnes = 2;
@@ -131,7 +140,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 530, 500, 30));
 
         jButton1.setText("jButton1");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
