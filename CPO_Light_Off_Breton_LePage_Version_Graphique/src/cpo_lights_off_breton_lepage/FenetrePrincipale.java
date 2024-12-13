@@ -36,8 +36,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 570, 100, 30));
 
-        int nbLignes = 3;
-        int nbColonnes = 3;
+        int nbLignes = 6;
+        int nbColonnes = 6;
         this.grille = new GrilleDeJeu(nbLignes, nbColonnes);
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
 
