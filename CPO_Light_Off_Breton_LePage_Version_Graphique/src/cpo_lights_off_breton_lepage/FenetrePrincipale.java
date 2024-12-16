@@ -21,11 +21,13 @@ public class FenetrePrincipale extends javax.swing.JFrame {
      * Creates new form FenetrePrincipale
      */
     int nbCoups;
+    int nbCoupsMax;
     GrilleDeJeu grille;
     
-    public FenetrePrincipale(int nbLignes, int nbColonnes) {
+    public FenetrePrincipale(int nbLignes, int nbColonnes, int nbCoupsMax) {
         initComponents();
-
+        
+        this.nbCoupsMax = nbCoupsMax; // Nombre de coups maximal en fonction du niveau
         this.grille = new GrilleDeJeu(nbLignes, nbColonnes);
         initialiserGrille(nbLignes, nbColonnes);
     }
@@ -91,6 +93,9 @@ public class FenetrePrincipale extends javax.swing.JFrame {
             System.out.println("Felicitations, vous avez gagne !");
             System.out.println("Vous avez effectue " + nbCoups + " coups.");
             desactiverTousLesBoutons();
+        }else if (nbCoups >= nbCoupsMax) {
+            jLabel1.setText("Dommage, vous avez atteint le nombre maximal de coups (" + nbCoupsMax + ") !");
+            desactiverTousLesBoutons();
         }
     }
     
@@ -130,7 +135,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         PanneauGrille.setLayout(new java.awt.GridLayout(1, 0));
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 500, 500));
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel1.setText("Victoire");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 530, 500, 30));
 
@@ -201,7 +206,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FenetrePrincipale(2,2).setVisible(true);
+                new FenetrePrincipale(2,2,2).setVisible(true);
             }
         });
     }

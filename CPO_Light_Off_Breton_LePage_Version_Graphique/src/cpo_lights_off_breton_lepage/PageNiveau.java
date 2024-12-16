@@ -73,11 +73,11 @@ public class PageNiveau extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Grille 4x4, vous avez 20 coups et 2 Joker");
+        jLabel2.setText("Grille 4x4, vous avez 10 coups et 2 Joker");
 
-        jLabel3.setText("Grille 7x7, vous avez 24 coups et 1 Joker");
+        jLabel3.setText("Grille 7x7, vous avez 15 coups et 1 Joker");
 
-        jLabel4.setText("Grille 10x10, vous avez 28 coups et pas de Joker");
+        jLabel4.setText("Grille 10x10, vous avez 20 coups et pas de Joker");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Veuillez choisir le niveau de difficulté que vous préfèrez :");
@@ -168,19 +168,19 @@ public class PageNiveau extends javax.swing.JFrame {
     }//GEN-LAST:event_RetourActionPerformed
 
     private void NivFacileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NivFacileActionPerformed
-        FenetrePrincipale Facile = new FenetrePrincipale(4,4);
+        FenetrePrincipale Facile = new FenetrePrincipale(4,4,10);
         Facile.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_NivFacileActionPerformed
 
     private void NivInterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NivInterActionPerformed
-        FenetrePrincipale Facile = new FenetrePrincipale(7,7);
+        FenetrePrincipale Facile = new FenetrePrincipale(7,7,15);
         Facile.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_NivInterActionPerformed
 
     private void NivDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NivDiffActionPerformed
-        FenetrePrincipale Facile = new FenetrePrincipale(10,10);
+        FenetrePrincipale Facile = new FenetrePrincipale(10,10,20);
         Facile.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_NivDiffActionPerformed

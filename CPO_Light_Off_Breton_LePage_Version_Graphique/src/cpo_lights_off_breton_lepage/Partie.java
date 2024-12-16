@@ -11,10 +11,12 @@ import java.util.Scanner;
  */
 public class Partie {
     private int nbCoups;
+    private int maxCoups;
     private GrilleDeJeu grille;
 
     public Partie(int nbCoups, GrilleDeJeu grille) {
         this.nbCoups = nbCoups=0;
+        this.maxCoups = maxCoups;
         this.grille = grille;
     }
     
@@ -31,7 +33,7 @@ public class Partie {
         System.out.println(grille);
 
         // Boucle de jeu tant que des cellules sont encore allumées
-        while (!grille.cellulesToutesEteintes()) {
+        while (!grille.cellulesToutesEteintes()&& nbCoups < maxCoups) {
             // Demander au joueur une ligne et une colonne
             System.out.print("Entrez le numéro de la ligne : ");
             int ligne = scanner.nextInt();
@@ -57,7 +59,11 @@ public class Partie {
         }
 
         // Fin de la partie
-        System.out.println("Félicitations ! Vous avez éteint toutes les cellules !");
+        if (grille.cellulesToutesEteintes()) {
+            System.out.println("Félicitations ! Vous avez éteint toutes les cellules !");
+        } else {
+            System.out.println("Dommage ! Vous avez atteint la limite de coups.");
+        }
         System.out.println("Nombre total de coups nécessaires : " + nbCoups);
         scanner.close();
     }

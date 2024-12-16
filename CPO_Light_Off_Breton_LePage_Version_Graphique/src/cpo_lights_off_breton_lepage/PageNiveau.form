@@ -164,17 +164,17 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Grille 4x4, vous avez 20 coups et 2 Joker"/>
+            <Property name="text" type="java.lang.String" value="Grille 4x4, vous avez 10 coups et 2 Joker"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Grille 7x7, vous avez 24 coups et 1 Joker"/>
+            <Property name="text" type="java.lang.String" value="Grille 7x7, vous avez 15 coups et 1 Joker"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Grille 10x10, vous avez 28 coups et pas de Joker"/>
+            <Property name="text" type="java.lang.String" value="Grille 10x10, vous avez 20 coups et pas de Joker"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
