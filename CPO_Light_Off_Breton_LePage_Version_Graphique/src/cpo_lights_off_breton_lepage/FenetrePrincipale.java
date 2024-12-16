@@ -28,16 +28,15 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         initComponents();
         
         // Configuration du bouton "Quitter"
-        jButton1.setText("Quitter");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BoutonQuitter.setText("Quitter");
+        BoutonQuitter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 System.exit(0); // Ferme l'application
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 570, 100, 30));
-
-        int nbLignes = 6;
-        int nbColonnes = 6;
+        
+        int nbLignes = 4;
+        int nbColonnes = 4;
         this.grille = new GrilleDeJeu(nbLignes, nbColonnes);
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
 
@@ -121,7 +120,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
         PanneauGrille = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        BoutonQuitter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -137,14 +136,23 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 500, 500));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("Victoire");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 530, 500, 30));
 
-        jButton1.setText("jButton1");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 550, -1, -1));
+        BoutonQuitter.setText("Quitter");
+        BoutonQuitter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoutonQuitterActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BoutonQuitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 540, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BoutonQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonQuitterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BoutonQuitterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,8 +198,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BoutonQuitter;
     private javax.swing.JPanel PanneauGrille;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
