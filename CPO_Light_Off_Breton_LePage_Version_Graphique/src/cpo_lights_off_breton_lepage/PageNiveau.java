@@ -60,8 +60,18 @@ public class PageNiveau extends javax.swing.JFrame {
         });
 
         NivInter.setText("Niveau Intermédiaire");
+        NivInter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NivInterActionPerformed(evt);
+            }
+        });
 
         NivDiff.setText("Niveau Difficile");
+        NivDiff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NivDiffActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Grille 4x4, vous avez 20 coups et 2 Joker");
 
@@ -158,10 +168,22 @@ public class PageNiveau extends javax.swing.JFrame {
     }//GEN-LAST:event_RetourActionPerformed
 
     private void NivFacileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NivFacileActionPerformed
-        FenetrePrincipale Facile = new FenetrePrincipale();
+        FenetrePrincipale Facile = new FenetrePrincipale(4,4);
         Facile.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_NivFacileActionPerformed
+
+    private void NivInterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NivInterActionPerformed
+        FenetrePrincipale Facile = new FenetrePrincipale(7,7);
+        Facile.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_NivInterActionPerformed
+
+    private void NivDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NivDiffActionPerformed
+        FenetrePrincipale Facile = new FenetrePrincipale(10,10);
+        Facile.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_NivDiffActionPerformed
 
     /**
      * @param args the command line arguments

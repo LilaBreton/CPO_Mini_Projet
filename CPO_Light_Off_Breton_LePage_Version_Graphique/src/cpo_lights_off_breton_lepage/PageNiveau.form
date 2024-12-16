@@ -150,11 +150,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Niveau Interm&#xe9;diaire"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NivInterActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="NivDiff">
           <Properties>
             <Property name="text" type="java.lang.String" value="Niveau Difficile"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NivDiffActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>

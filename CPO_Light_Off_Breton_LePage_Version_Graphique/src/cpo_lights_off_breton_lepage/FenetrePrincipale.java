@@ -23,21 +23,14 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     int nbCoups;
     GrilleDeJeu grille;
     
-
-    public FenetrePrincipale() {
+    public FenetrePrincipale(int nbLignes, int nbColonnes) {
         initComponents();
-        
-        // Configuration du bouton "Quitter"
-        BoutonQuitter.setText("Quitter");
-        BoutonQuitter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                System.exit(0); // Ferme l'application
-            }
-        });
-        
-        int nbLignes = 4;
-        int nbColonnes = 4;
+
         this.grille = new GrilleDeJeu(nbLignes, nbColonnes);
+        initialiserGrille(nbLignes, nbColonnes);
+    }
+    
+    private void initialiserGrille(int nbLignes, int nbColonnes) {
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
 
         for (int i = 0; i < nbLignes; i++) {
@@ -47,6 +40,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         //actions a declencher ...
                         activerCelluleEtVoisines(bouton_cellule.i,bouton_cellule.j);
+                        PanneauGrille.revalidate();
                         PanneauGrille.repaint();
                         nbCoups++;
                         verifierEtGererVictoire();
@@ -57,7 +51,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         }
         initialiserPartie();
     }
-
+        
     public void initialiserPartie() {
         nbCoups = 0;
         jLabel1.setText("");
@@ -151,7 +145,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BoutonQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonQuitterActionPerformed
-        // TODO add your handling code here:
+        System.exit(0); // Ferme l'application
     }//GEN-LAST:event_BoutonQuitterActionPerformed
 
     /**
