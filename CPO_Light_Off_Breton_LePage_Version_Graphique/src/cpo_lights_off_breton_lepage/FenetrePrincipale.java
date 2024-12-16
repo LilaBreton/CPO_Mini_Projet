@@ -115,6 +115,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         PanneauGrille = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         BoutonQuitter = new javax.swing.JButton();
+        Retour = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -127,11 +128,11 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         PanneauGrille.setPreferredSize(new java.awt.Dimension(700, 700));
         PanneauGrille.setVerifyInputWhenFocusTarget(false);
         PanneauGrille.setLayout(new java.awt.GridLayout(1, 0));
-        getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 500, 500));
+        getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 500, 500));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel1.setText("Victoire");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 530, 500, 30));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 530, 500, 30));
 
         BoutonQuitter.setText("Quitter");
         BoutonQuitter.addActionListener(new java.awt.event.ActionListener() {
@@ -139,7 +140,15 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 BoutonQuitterActionPerformed(evt);
             }
         });
-        getContentPane().add(BoutonQuitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 540, -1, -1));
+        getContentPane().add(BoutonQuitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 570, -1, -1));
+
+        Retour.setText("Retour");
+        Retour.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RetourActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Retour, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 570, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -147,6 +156,12 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     private void BoutonQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonQuitterActionPerformed
         System.exit(0); // Ferme l'application
     }//GEN-LAST:event_BoutonQuitterActionPerformed
+
+    private void RetourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetourActionPerformed
+        PageNiveau Retour = new PageNiveau();
+        Retour.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_RetourActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,7 +201,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FenetrePrincipale().setVisible(true);
+                new FenetrePrincipale(2,2).setVisible(true);
             }
         });
     }
@@ -194,6 +209,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BoutonQuitter;
     private javax.swing.JPanel PanneauGrille;
+    private javax.swing.JButton Retour;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
