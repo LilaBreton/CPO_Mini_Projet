@@ -14,31 +14,32 @@ public class Partie {
     private int maxCoups;
     private GrilleDeJeu grille;
 
-    public Partie(int nbCoups, GrilleDeJeu grille) {
-        this.nbCoups = nbCoups=0;
-        this.maxCoups = maxCoups;
+    public Partie(GrilleDeJeu grille, int maxCoups) {
+        this.nbCoups = 0;
         this.grille = grille;
+        this.maxCoups = maxCoups;
     }
-    
-    public void initialiserPartie(){
-        while (grille.cellulesToutesEteintes()!=false){
-            grille.melangerMatriceAleatoirement(1);;
+
+    public void initialiserPartie() {
+        grille.melangerMatriceAleatoirement(10); // Mélange initial
+        while (grille.cellulesToutesEteintes()) { // Si toutes les cellules sont éteintes
+            grille.melangerMatriceAleatoirement(10); // On mélange à nouveau
         }
-    }
-    
+}
+
     // Lance la partie interactive
     public void lancerPartie() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Début de la partie ! Voici l'état initial de la grille :");
+        System.out.println("Debut de la partie ! Voici l'etat initial de la grille :");
         System.out.println(grille);
 
         // Boucle de jeu tant que des cellules sont encore allumées
-        while (!grille.cellulesToutesEteintes()&& nbCoups < maxCoups) {
+        while (!grille.cellulesToutesEteintes() && nbCoups < maxCoups) {
             // Demander au joueur une ligne et une colonne
-            System.out.print("Entrez le numéro de la ligne : ");
+            System.out.print("Entrez le numero de la ligne : ");
             int ligne = scanner.nextInt();
 
-            System.out.print("Entrez le numéro de la colonne : ");
+            System.out.print("Entrez le numero de la colonne : ");
             int colonne = scanner.nextInt();
 
             // Vérifier si les coordonnées sont valides
@@ -50,24 +51,25 @@ public class Partie {
                 nbCoups++;
 
                 // Afficher l'état actuel de la grille
-                System.out.println("Grille après votre coup :");
+                System.out.println("Grille apres votre coup :");
                 System.out.println(grille);
-                System.out.println("Nombre de coups joués : " + nbCoups);
+                System.out.println("Nombre de coups joues : " + nbCoups + "/" + maxCoups);
             } else {
-                System.out.println("Coordonnées invalides. Réessayez.");
+                System.out.println("Coordonnees invalides. Réessayez.");
             }
         }
 
         // Fin de la partie
         if (grille.cellulesToutesEteintes()) {
-            System.out.println("Félicitations ! Vous avez éteint toutes les cellules !");
+            System.out.println("Felicitations ! Vous avez eteint toutes les cellules !");
         } else {
             System.out.println("Dommage ! Vous avez atteint la limite de coups.");
         }
-        System.out.println("Nombre total de coups nécessaires : " + nbCoups);
+
+        System.out.println("Nombre total de coups joues : " + nbCoups);
         scanner.close();
     }
-    
+
     // Méthode pour activer une cellule et ses voisines
     private void activerCelluleEtVoisines(int ligne, int colonne) {
         // Activer la cellule choisie

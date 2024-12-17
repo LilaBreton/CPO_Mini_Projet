@@ -24,6 +24,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     int nbCoupsMax;
     int nbTours;
     int nbJoker;
+    private boolean modeJoker;  // Flag pour savoir si on est en mode Joker
     GrilleDeJeu grille;
     
     
@@ -46,8 +47,14 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 CelluleGraphique bouton_cellule = new CelluleGraphique(grille.matriceCellules[i][j], 36, 36, i, j);
                 bouton_cellule.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        //actions a declencher ...
-                        activerCelluleEtVoisines(bouton_cellule.i,bouton_cellule.j);
+                        if (modeJoker) {
+                            // Mode Joker : changer uniquement la cellule cliquée
+                            activerCelluleAvecJoker(bouton_cellule.i, bouton_cellule.j);
+                            modeJoker = false; // Désactiver le mode Joker après un clic
+                        } else {
+                            // Mode normal : activer la cellule et ses voisines
+                            activerCelluleEtVoisines(bouton_cellule.i, bouton_cellule.j);
+                        }
                         PanneauGrille.revalidate();
                         PanneauGrille.repaint();
                         nbCoups++;
@@ -65,6 +72,11 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         Victoire.setText("");
         grille.eteindreToutesLesCellules();
         grille.melangerMatriceAleatoirement(nbTours);
+    }
+    
+    private void activerCelluleAvecJoker(int ligne, int colonne) {
+        // Appeler la méthode activerCellule() sur la cellule choisie
+        grille.matriceCellules[ligne][colonne].activerCellule();  // Inverser l'état de la cellule (allumer ou éteindre)
     }
     
     private void ClicCellule(int ligne, int colonne, CelluleGraphique bouton) {
@@ -115,12 +127,10 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         }
     }
     
-    private void activerModeJoker(int ligne, int colonne){
-        grille.matriceCellules[ligne][colonne].eteindreCellule();
-        PanneauGrille.revalidate();
-        PanneauGrille.repaint();
-        nbCoups++;
-        verifierEtGererVictoire();
+
+    private void activerModeJoker(){
+        modeJoker = true;  // Activer le mode Joker
+
     }
     
     
@@ -199,9 +209,10 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
     private void JokerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JokerActionPerformed
         if (nbJoker >= 1) {
-            nbJoker --;
-            NbJoker.setText("Il vous reste : " + nbJoker +" Joker(s)");
-            activerModeJoker(grille.nbLignes,grille.nbColonnes);
+            nbJoker--;  // Décrémenter le nombre de jokers
+            NbJoker.setText("Il vous reste : " + nbJoker + " Joker(s)");
+
+            activerModeJoker();  // Activer l'écoute des clics sur la grille
         } else {
             NbJoker.setText("Vous n'avez plus de Joker");
         }
