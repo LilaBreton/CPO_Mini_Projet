@@ -23,15 +23,19 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     int nbCoups;
     int nbCoupsMax;
     int nbTours;
+    int nbJoker;
     GrilleDeJeu grille;
     
-    public FenetrePrincipale(int nbLignes, int nbColonnes, int nbCoupsMax, int nbTours) {
+    
+    public FenetrePrincipale(int nbLignes, int nbColonnes, int nbCoupsMax, int nbTours, int nbJoker) {
         initComponents();
         
+        this.nbJoker = nbJoker;
         this.nbTours = nbTours;
         this.nbCoupsMax = nbCoupsMax; // Nombre de coups maximal en fonction du niveau
         this.grille = new GrilleDeJeu(nbLignes, nbColonnes);
         initialiserGrille(nbLignes, nbColonnes);
+        NbJoker.setText("Vous avez : "+ nbJoker + " Joker(s)");
     }
     
     private void initialiserGrille(int nbLignes, int nbColonnes) {
@@ -58,13 +62,14 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         
     public void initialiserPartie() {
         nbCoups = 0;
-        jLabel1.setText("");
+        Victoire.setText("");
         grille.eteindreToutesLesCellules();
         grille.melangerMatriceAleatoirement(nbTours);
     }
     
     private void ClicCellule(int ligne, int colonne, CelluleGraphique bouton) {
         activerCelluleEtVoisines(ligne, colonne);
+        PanneauGrille.revalidate();
         PanneauGrille.repaint();
         nbCoups++;
         verifierEtGererVictoire();
@@ -89,14 +94,15 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         }
     }
     
+    
     private void verifierEtGererVictoire() {
         if (grille.cellulesToutesEteintes()) {
-            jLabel1.setText("Felicitations, vous avez gagne en " + nbCoups + " coups !");
+            Victoire.setText("Felicitations, vous avez gagne en " + nbCoups + " coups !");
             System.out.println("Felicitations, vous avez gagne !");
             System.out.println("Vous avez effectue " + nbCoups + " coups.");
             desactiverTousLesBoutons();
         }else if (nbCoups >= nbCoupsMax) {
-            jLabel1.setText("Dommage, vous avez atteint le nombre maximal de coups (" + nbCoupsMax + ") !");
+            Victoire.setText("Dommage, vous avez atteint le nombre maximal de coups (" + nbCoupsMax + ") !");
             desactiverTousLesBoutons();
         }
     }
@@ -107,6 +113,14 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 component.setEnabled(false); // Désactiver chaque bouton
             }
         }
+    }
+    
+    private void activerModeJoker(int ligne, int colonne){
+        grille.matriceCellules[ligne][colonne].eteindreCellule();
+        PanneauGrille.revalidate();
+        PanneauGrille.repaint();
+        nbCoups++;
+        verifierEtGererVictoire();
     }
     
     
@@ -120,9 +134,11 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     private void initComponents() {
 
         PanneauGrille = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        Victoire = new javax.swing.JLabel();
         BoutonQuitter = new javax.swing.JButton();
         Retour = new javax.swing.JButton();
+        Joker = new javax.swing.JButton();
+        NbJoker = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -137,9 +153,9 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         PanneauGrille.setLayout(new java.awt.GridLayout(1, 0));
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 500, 500));
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel1.setText("Victoire");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 530, 500, 30));
+        Victoire.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        Victoire.setText("Victoire");
+        getContentPane().add(Victoire, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 530, 500, 30));
 
         BoutonQuitter.setText("Quitter");
         BoutonQuitter.addActionListener(new java.awt.event.ActionListener() {
@@ -157,6 +173,17 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         });
         getContentPane().add(Retour, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 570, -1, -1));
 
+        Joker.setText("Joker");
+        Joker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JokerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Joker, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, -1, -1));
+
+        NbJoker.setText("Nombre Joker");
+        getContentPane().add(NbJoker, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, -1, 100));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -169,6 +196,16 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         Retour.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_RetourActionPerformed
+
+    private void JokerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JokerActionPerformed
+        if (nbJoker >= 1) {
+            nbJoker --;
+            NbJoker.setText("Il vous reste : " + nbJoker +" Joker(s)");
+            activerModeJoker(grille.nbLignes,grille.nbColonnes);
+        } else {
+            NbJoker.setText("Vous n'avez plus de Joker");
+        }
+    }//GEN-LAST:event_JokerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,15 +245,17 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FenetrePrincipale(2,2,2,2).setVisible(true);
+                new FenetrePrincipale(2,2,2,2,2).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BoutonQuitter;
+    private javax.swing.JButton Joker;
+    private javax.swing.JLabel NbJoker;
     private javax.swing.JPanel PanneauGrille;
     private javax.swing.JButton Retour;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel Victoire;
     // End of variables declaration//GEN-END:variables
 }

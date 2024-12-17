@@ -168,19 +168,19 @@ public class PageNiveau extends javax.swing.JFrame {
     }//GEN-LAST:event_RetourActionPerformed
 
     private void NivFacileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NivFacileActionPerformed
-        FenetrePrincipale Facile = new FenetrePrincipale(4,4,10,10);
+        FenetrePrincipale Facile = new FenetrePrincipale(4,4,10,10,2);
         Facile.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_NivFacileActionPerformed
 
     private void NivInterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NivInterActionPerformed
-        FenetrePrincipale Facile = new FenetrePrincipale(7,7,15, 13);
+        FenetrePrincipale Facile = new FenetrePrincipale(7,7,15,13,1);
         Facile.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_NivInterActionPerformed
 
     private void NivDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NivDiffActionPerformed
-        FenetrePrincipale Facile = new FenetrePrincipale(10,10,20,16);
+        FenetrePrincipale Facile = new FenetrePrincipale(10,10,20,16,0);
         Facile.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_NivDiffActionPerformed
