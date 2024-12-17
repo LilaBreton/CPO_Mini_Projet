@@ -101,6 +101,9 @@ public class FenetrePrincipale extends javax.swing.JFrame {
             System.out.println("Felicitations, vous avez gagne !");
             System.out.println("Vous avez effectue " + nbCoups + " coups.");
             desactiverTousLesBoutons();
+            //PageVictoire victoire = new PageVictoire();
+            //victoire.setVisible(true);
+            //this.dispose();
         }else if (nbCoups >= nbCoupsMax) {
             Victoire.setText("Dommage, vous avez atteint le nombre maximal de coups (" + nbCoupsMax + ") !");
             desactiverTousLesBoutons();
@@ -135,7 +138,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
         PanneauGrille = new javax.swing.JPanel();
         Victoire = new javax.swing.JLabel();
-        BoutonQuitter = new javax.swing.JButton();
+        Quitter = new javax.swing.JButton();
         Retour = new javax.swing.JButton();
         Joker = new javax.swing.JButton();
         NbJoker = new javax.swing.JLabel();
@@ -157,13 +160,13 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         Victoire.setText("Victoire");
         getContentPane().add(Victoire, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 530, 500, 30));
 
-        BoutonQuitter.setText("Quitter");
-        BoutonQuitter.addActionListener(new java.awt.event.ActionListener() {
+        Quitter.setText("Quitter");
+        Quitter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BoutonQuitterActionPerformed(evt);
+                QuitterActionPerformed(evt);
             }
         });
-        getContentPane().add(BoutonQuitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 570, -1, -1));
+        getContentPane().add(Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 570, -1, -1));
 
         Retour.setText("Retour");
         Retour.addActionListener(new java.awt.event.ActionListener() {
@@ -187,9 +190,9 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BoutonQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonQuitterActionPerformed
+    private void QuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitterActionPerformed
         System.exit(0); // Ferme l'application
-    }//GEN-LAST:event_BoutonQuitterActionPerformed
+    }//GEN-LAST:event_QuitterActionPerformed
 
     private void RetourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetourActionPerformed
         PageNiveau Retour = new PageNiveau();
@@ -251,10 +254,10 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BoutonQuitter;
     private javax.swing.JButton Joker;
     private javax.swing.JLabel NbJoker;
     private javax.swing.JPanel PanneauGrille;
+    private javax.swing.JButton Quitter;
     private javax.swing.JButton Retour;
     private javax.swing.JLabel Victoire;
     // End of variables declaration//GEN-END:variables

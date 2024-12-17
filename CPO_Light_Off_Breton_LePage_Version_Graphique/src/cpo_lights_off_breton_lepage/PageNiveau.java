@@ -27,23 +27,23 @@ public class PageNiveau extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        InterfNiveau = new javax.swing.JPanel();
+        Choix = new javax.swing.JLabel();
         Retour = new javax.swing.JButton();
         NivFacile = new javax.swing.JButton();
         NivInter = new javax.swing.JButton();
         NivDiff = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        RegleFac = new javax.swing.JLabel();
+        RegleInt = new javax.swing.JLabel();
+        RegleDif = new javax.swing.JLabel();
+        PhraseIntro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        InterfNiveau.setBackground(new java.awt.Color(204, 255, 204));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Choix Niveau");
+        Choix.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Choix.setText("Choix Niveau");
 
         Retour.setText("Retour");
         Retour.addActionListener(new java.awt.event.ActionListener() {
@@ -73,69 +73,69 @@ public class PageNiveau extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Grille 4x4, vous avez 10 coups et 2 Joker");
+        RegleFac.setText("Grille 4x4, vous avez 10 coups et 2 Joker");
 
-        jLabel3.setText("Grille 7x7, vous avez 15 coups et 1 Joker");
+        RegleInt.setText("Grille 7x7, vous avez 15 coups et 1 Joker");
 
-        jLabel4.setText("Grille 10x10, vous avez 20 coups et pas de Joker");
+        RegleDif.setText("Grille 10x10, vous avez 20 coups et pas de Joker");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("Veuillez choisir le niveau de difficulté que vous préfèrez :");
+        PhraseIntro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        PhraseIntro.setText("Veuillez choisir le niveau de difficulté que vous préfèrez :");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel2)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout InterfNiveauLayout = new javax.swing.GroupLayout(InterfNiveau);
+        InterfNiveau.setLayout(InterfNiveauLayout);
+        InterfNiveauLayout.setHorizontalGroup(
+            InterfNiveauLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InterfNiveauLayout.createSequentialGroup()
+                .addGroup(InterfNiveauLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InterfNiveauLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(RegleFac)
+                        .addGroup(InterfNiveauLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(InterfNiveauLayout.createSequentialGroup()
                                 .addGap(217, 217, 217)
                                 .addComponent(NivInter))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(InterfNiveauLayout.createSequentialGroup()
                                 .addGap(232, 232, 232)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Choix))
+                            .addGroup(InterfNiveauLayout.createSequentialGroup()
                                 .addGap(179, 179, 179)
-                                .addComponent(jLabel3))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(RegleInt))
+                            .addGroup(InterfNiveauLayout.createSequentialGroup()
                                 .addGap(16, 16, 16)
                                 .addComponent(Retour))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(InterfNiveauLayout.createSequentialGroup()
                                 .addGap(215, 215, 215)
                                 .addComponent(NivFacile, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(InterfNiveauLayout.createSequentialGroup()
                         .addGap(219, 219, 219)
                         .addComponent(NivDiff, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(InterfNiveauLayout.createSequentialGroup()
                         .addGap(162, 162, 162)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(RegleDif))
+                    .addGroup(InterfNiveauLayout.createSequentialGroup()
                         .addGap(130, 130, 130)
-                        .addComponent(jLabel5)))
+                        .addComponent(PhraseIntro)))
                 .addContainerGap(133, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        InterfNiveauLayout.setVerticalGroup(
+            InterfNiveauLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InterfNiveauLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addComponent(jLabel1)
+                .addComponent(Choix)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel5)
+                .addComponent(PhraseIntro)
                 .addGap(18, 18, 18)
                 .addComponent(NivFacile)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(RegleFac)
                 .addGap(18, 18, 18)
                 .addComponent(NivInter)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RegleInt, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(NivDiff)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(RegleDif)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(Retour)
                 .addGap(14, 14, 14))
@@ -147,14 +147,14 @@ public class PageNiveau extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(163, 163, 163)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(InterfNiveau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(244, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(83, 83, 83)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(InterfNiveau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(136, Short.MAX_VALUE))
         );
 
@@ -221,15 +221,15 @@ public class PageNiveau extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Choix;
+    private javax.swing.JPanel InterfNiveau;
     private javax.swing.JButton NivDiff;
     private javax.swing.JButton NivFacile;
     private javax.swing.JButton NivInter;
+    private javax.swing.JLabel PhraseIntro;
+    private javax.swing.JLabel RegleDif;
+    private javax.swing.JLabel RegleFac;
+    private javax.swing.JLabel RegleInt;
     private javax.swing.JButton Retour;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
