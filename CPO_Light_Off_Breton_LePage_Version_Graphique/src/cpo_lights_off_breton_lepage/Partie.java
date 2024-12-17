@@ -87,4 +87,8 @@ public class Partie {
             grille.matriceCellules[ligne][colonne + 1].activerCellule(); // Droite
         }
     }
+    
+    private void activerCellule(int ligne, int colonne) {
+        grille.matriceCellules[ligne][colonne].activerCellule();
+    }
 }
