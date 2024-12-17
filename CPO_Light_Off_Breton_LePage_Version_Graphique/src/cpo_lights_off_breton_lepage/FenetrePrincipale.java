@@ -1,5 +1,5 @@
 /*Lila Breton, Clarisse Le Page TDC
-* 20 novembre 2024
+ *20 novembre 2024
  */
 package cpo_lights_off_breton_lepage;
 
@@ -58,7 +58,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                         PanneauGrille.revalidate();
                         PanneauGrille.repaint();
                         nbCoups++;
-                        verifierEtGererVictoire();
+                        verifierVictoire();
                     }
                 });
                 PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
@@ -84,7 +84,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         PanneauGrille.revalidate();
         PanneauGrille.repaint();
         nbCoups++;
-        verifierEtGererVictoire();
+        verifierVictoire();
     }
     
     private void activerCelluleEtVoisines(int ligne, int colonne) {
@@ -106,19 +106,21 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         }
     }
     
-    
-    private void verifierEtGererVictoire() {
+    private void verifierVictoire() {
         if (grille.cellulesToutesEteintes()) {
-            Victoire.setText("Felicitations, vous avez gagne en " + nbCoups + " coups !");
+            Victoire.setText("Félicitations, vous avez gagné en " + nbCoups + " coups !");
             System.out.println("Felicitations, vous avez gagne !");
-            System.out.println("Vous avez effectue " + nbCoups + " coups.");
+            System.out.println("Vous avez effectue " + nbCoups + " coups");
             desactiverTousLesBoutons();
-            //PageVictoire victoire = new PageVictoire();
-            //victoire.setVisible(true);
-            //this.dispose();
+            PageVictoire victoire = new PageVictoire(nbCoups);
+            victoire.setVisible(true);
+            this.dispose();
         }else if (nbCoups >= nbCoupsMax) {
             Victoire.setText("Dommage, vous avez atteint le nombre maximal de coups (" + nbCoupsMax + ") !");
             desactiverTousLesBoutons();
+            PageDefaite defaite = new PageDefaite();
+            defaite.setVisible(true);
+            this.dispose();
         }
     }
     
@@ -130,12 +132,9 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         }
     }
     
-
     private void activerModeJoker(){
         modeJoker = true;  // Activer le mode Joker
-
     }
-    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -214,7 +213,6 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         if (nbJoker >= 1) {
             nbJoker--;  // Décrémenter le nombre de jokers
             NbJoker.setText("Il vous reste : " + nbJoker + " Joker(s)");
-
             activerModeJoker();  // Activer l'écoute des clics sur la grille
         } else {
             NbJoker.setText("Vous n'avez plus de Joker");

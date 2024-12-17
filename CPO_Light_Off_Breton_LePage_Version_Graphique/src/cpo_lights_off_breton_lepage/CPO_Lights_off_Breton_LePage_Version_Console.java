@@ -1,6 +1,6 @@
-/* Lila Breton, Clarisse Le Page TDC
-* 20 novembre 2024
-*/
+/*Lila Breton, Clarisse Le Page TDC
+ *20 novembre 2024
+ */
 package cpo_lights_off_breton_lepage;
 
 import java.util.Scanner;

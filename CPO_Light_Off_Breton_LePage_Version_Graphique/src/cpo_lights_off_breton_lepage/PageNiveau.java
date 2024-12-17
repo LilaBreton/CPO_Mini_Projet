@@ -1,9 +1,7 @@
-package cpo_lights_off_breton_lepage;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+/*Lila Breton, Clarisse Le Page TDC
+ *20 novembre 2024
  */
+package cpo_lights_off_breton_lepage;
 
 /**
  *
@@ -39,8 +37,10 @@ public class PageNiveau extends javax.swing.JFrame {
         PhraseIntro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1540, 820));
 
         InterfNiveau.setBackground(new java.awt.Color(204, 255, 204));
+        InterfNiveau.setPreferredSize(new java.awt.Dimension(614, 418));
 
         Choix.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Choix.setText("Choix Niveau");
@@ -104,7 +104,7 @@ public class PageNiveau extends javax.swing.JFrame {
                                 .addGap(16, 16, 16)
                                 .addComponent(Retour))
                             .addGroup(InterfNiveauLayout.createSequentialGroup()
-                                .addGap(215, 215, 215)
+                                .addGap(206, 206, 206)
                                 .addComponent(NivFacile, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(InterfNiveauLayout.createSequentialGroup()
                         .addGap(219, 219, 219)
@@ -115,12 +115,12 @@ public class PageNiveau extends javax.swing.JFrame {
                     .addGroup(InterfNiveauLayout.createSequentialGroup()
                         .addGap(130, 130, 130)
                         .addComponent(PhraseIntro)))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         InterfNiveauLayout.setVerticalGroup(
             InterfNiveauLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InterfNiveauLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(40, 40, 40)
                 .addComponent(Choix)
                 .addGap(18, 18, 18)
                 .addComponent(PhraseIntro)
@@ -136,7 +136,7 @@ public class PageNiveau extends javax.swing.JFrame {
                 .addComponent(NivDiff)
                 .addGap(18, 18, 18)
                 .addComponent(RegleDif)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(Retour)
                 .addGap(14, 14, 14))
         );
@@ -146,16 +146,16 @@ public class PageNiveau extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(163, 163, 163)
+                .addGap(455, 455, 455)
                 .addComponent(InterfNiveau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(244, Short.MAX_VALUE))
+                .addGap(455, 455, 455))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
+                .addGap(177, 177, 177)
                 .addComponent(InterfNiveau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addGap(177, 177, 177))
         );
 
         pack();

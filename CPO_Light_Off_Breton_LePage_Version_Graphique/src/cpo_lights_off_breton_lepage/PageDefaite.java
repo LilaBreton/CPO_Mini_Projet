@@ -7,14 +7,13 @@ package cpo_lights_off_breton_lepage;
  *
  * @author lilab
  */
-public class PageVictoire extends javax.swing.JFrame {
+public class PageDefaite extends javax.swing.JFrame {
 
     /**
-     * Creates new form PageVictoire
+     * Creates new form PageDefaite
      */
-    public PageVictoire(int nbCoups) {
+    public PageDefaite() {
         initComponents();
-        NbCoups.setText("Vous avez effectué " + nbCoups + " coups");
     }
 
     /**
@@ -29,22 +28,25 @@ public class PageVictoire extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Victoire = new javax.swing.JLabel();
         Felicitation = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         Choix = new javax.swing.JLabel();
         Rejouer = new javax.swing.JButton();
         Quitter = new javax.swing.JButton();
-        NbCoups = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1540, 820));
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(614, 418));
 
         Victoire.setFont(new java.awt.Font("Segoe Script", 1, 36)); // NOI18N
-        Victoire.setText("Victoire !");
+        Victoire.setText("Défaite !");
 
         Felicitation.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Felicitation.setText("Félicitations vous avez gagné ! ");
+        Felicitation.setText("Dommage vous avez perdu ! ");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setText("Vous avez dépassé le nombre de coups autorisés");
 
         Choix.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Choix.setText("Souhaitez-vous rejouer ?");
@@ -63,50 +65,51 @@ public class PageVictoire extends javax.swing.JFrame {
             }
         });
 
-        NbCoups.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        NbCoups.setText("Affichage nombre de coups");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(174, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(128, 128, 128))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Felicitation)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(Victoire)))
+                        .addGap(196, 196, 196))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addComponent(Victoire))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(209, 209, 209)
-                        .addComponent(Felicitation))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addComponent(NbCoups))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(185, 185, 185)
+                        .addGap(169, 169, 169)
                         .addComponent(Rejouer)
-                        .addGap(100, 100, 100)
+                        .addGap(84, 84, 84)
                         .addComponent(Quitter))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(229, 229, 229)
+                        .addGap(208, 208, 208)
                         .addComponent(Choix)))
-                .addGap(218, 218, 218))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(45, 45, 45)
                 .addComponent(Victoire)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(Felicitation)
-                .addGap(25, 25, 25)
-                .addComponent(NbCoups)
-                .addGap(65, 65, 65)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addGap(41, 41, 41)
                 .addComponent(Choix)
-                .addGap(35, 35, 35)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Rejouer)
                     .addComponent(Quitter))
-                .addGap(88, 88, 88))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -114,16 +117,16 @@ public class PageVictoire extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(455, 455, 455)
+                .addGap(197, 197, 197)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(455, 455, 455))
+                .addContainerGap(729, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(177, 177, 177)
+                .addGap(71, 71, 71)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(177, 177, 177))
+                .addContainerGap(331, Short.MAX_VALUE))
         );
 
         pack();
@@ -156,20 +159,20 @@ public class PageVictoire extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PageVictoire.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PageDefaite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PageVictoire.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PageDefaite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PageVictoire.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PageDefaite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PageVictoire.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PageDefaite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PageVictoire(1).setVisible(true);
+                new PageDefaite().setVisible(true);
             }
         });
     }
@@ -177,10 +180,10 @@ public class PageVictoire extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Choix;
     private javax.swing.JLabel Felicitation;
-    private javax.swing.JLabel NbCoups;
     private javax.swing.JButton Quitter;
     private javax.swing.JButton Rejouer;
     private javax.swing.JLabel Victoire;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

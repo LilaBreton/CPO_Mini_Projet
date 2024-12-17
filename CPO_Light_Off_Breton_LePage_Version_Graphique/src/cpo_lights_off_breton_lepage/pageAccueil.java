@@ -1,6 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+/*Lila Breton, Clarisse Le Page TDC
+ *20 novembre 2024
  */
 package cpo_lights_off_breton_lepage;
 
@@ -35,6 +34,7 @@ public class pageAccueil extends javax.swing.JFrame {
         Forme = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1540, 820));
 
         InterfAccueil.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -64,42 +64,40 @@ public class pageAccueil extends javax.swing.JFrame {
             .addGroup(InterfAccueilLayout.createSequentialGroup()
                 .addGroup(InterfAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InterfAccueilLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(Regles))
-                    .addGroup(InterfAccueilLayout.createSequentialGroup()
-                        .addGap(229, 229, 229)
-                        .addComponent(AccueilNiveau)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InterfAccueilLayout.createSequentialGroup()
-                .addContainerGap(110, Short.MAX_VALUE)
-                .addGroup(InterfAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(InterfAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(InterfAccueilLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(Regles))
+                            .addGroup(InterfAccueilLayout.createSequentialGroup()
+                                .addGap(265, 265, 265)
+                                .addComponent(AccueilNiveau)))
+                        .addGap(260, 260, 260))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InterfAccueilLayout.createSequentialGroup()
-                        .addComponent(Jeu, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(107, 107, 107))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InterfAccueilLayout.createSequentialGroup()
-                        .addComponent(Noms, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGap(548, 548, 548)
+                        .addComponent(Noms, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
             .addGroup(InterfAccueilLayout.createSequentialGroup()
-                .addGap(107, 107, 107)
+                .addGap(150, 150, 150)
                 .addGroup(InterfAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Eteindre, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Jeu)
+                    .addComponent(Eteindre)
                     .addComponent(Forme))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(150, 150, 150))
         );
         InterfAccueilLayout.setVerticalGroup(
             InterfAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InterfAccueilLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(40, 40, 40)
                 .addComponent(Jeu)
-                .addGap(54, 54, 54)
+                .addGap(50, 50, 50)
                 .addComponent(Regles)
-                .addGap(18, 18, 18)
-                .addComponent(Eteindre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(20, 20, 20)
+                .addComponent(Eteindre)
+                .addGap(20, 20, 20)
                 .addComponent(Forme)
-                .addGap(39, 39, 39)
+                .addGap(60, 60, 60)
                 .addComponent(AccueilNiveau)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addGap(80, 80, 80)
                 .addComponent(Noms)
                 .addContainerGap())
         );
@@ -108,17 +106,17 @@ public class pageAccueil extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(203, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(455, 455, 455)
                 .addComponent(InterfAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(200, 200, 200))
+                .addContainerGap(457, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(82, 82, 82)
+                .addGap(177, 177, 177)
                 .addComponent(InterfAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
 
         pack();
