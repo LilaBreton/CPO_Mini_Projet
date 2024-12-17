@@ -22,11 +22,13 @@ public class FenetrePrincipale extends javax.swing.JFrame {
      */
     int nbCoups;
     int nbCoupsMax;
+    int nbTours;
     GrilleDeJeu grille;
     
-    public FenetrePrincipale(int nbLignes, int nbColonnes, int nbCoupsMax) {
+    public FenetrePrincipale(int nbLignes, int nbColonnes, int nbCoupsMax, int nbTours) {
         initComponents();
         
+        this.nbTours = nbTours;
         this.nbCoupsMax = nbCoupsMax; // Nombre de coups maximal en fonction du niveau
         this.grille = new GrilleDeJeu(nbLignes, nbColonnes);
         initialiserGrille(nbLignes, nbColonnes);
@@ -58,7 +60,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         nbCoups = 0;
         jLabel1.setText("");
         grille.eteindreToutesLesCellules();
-        grille.melangerMatriceAleatoirement(10);
+        grille.melangerMatriceAleatoirement(nbTours);
     }
     
     private void ClicCellule(int ligne, int colonne, CelluleGraphique bouton) {
@@ -206,7 +208,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FenetrePrincipale(2,2,2).setVisible(true);
+                new FenetrePrincipale(2,2,2,2).setVisible(true);
             }
         });
     }
