@@ -24,27 +24,51 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     int nbCoupsMax;
     int nbTours;
     int nbJoker;
-    private boolean modeJoker;  // Flag pour savoir si on est en mode Joker
+    private boolean modeJoker;  
     GrilleDeJeu grille;
     
-    
+    /**
+     * Constructeur de la classe {@code FenetrePrincipale}.
+     * Initialise l'interface graphique principale du jeu avec une grille, des paramètres de jeu, 
+     * et configure l'affichage du nombre de jokers.
+     *
+     * @param nbLignes    le nombre de lignes de la grille de jeu.
+     * @param nbColonnes  le nombre de colonnes de la grille de jeu.
+     * @param nbCoupsMax  le nombre maximal de coups autorisés pour le niveau.
+     * @param nbTours     le nombre de tours utilisés pour mélanger la grille au début du jeu.
+     * @param nbJoker     le nombre de jokers disponibles pour le joueur.
+     */
     public FenetrePrincipale(int nbLignes, int nbColonnes, int nbCoupsMax, int nbTours, int nbJoker) {
         initComponents();
         
-        this.nbJoker = nbJoker;
+        this.nbJoker = nbJoker; 
         this.nbTours = nbTours;
-        this.nbCoupsMax = nbCoupsMax; // Nombre de coups maximal en fonction du niveau
+        this.nbCoupsMax = nbCoupsMax; 
         this.grille = new GrilleDeJeu(nbLignes, nbColonnes);
         initialiserGrille(nbLignes, nbColonnes);
         NbJoker.setText("Vous avez : "+ nbJoker + " Joker(s)");
     }
     
+    /**
+     * Initialise la grille graphique du jeu avec des boutons interactifs 
+     * représentant les cellules de la grille.
+     * Configure les comportements associés aux clics sur les cellules.
+     *
+     * @param nbLignes    le nombre de lignes de la grille.
+     * @param nbColonnes  le nombre de colonnes de la grille.
+     */
     private void initialiserGrille(int nbLignes, int nbColonnes) {
-        PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
+        PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes)); // Définit la disposition du panneau PanneauGrille en fonction d'une grille de nbLignes x nbColonnes
 
-        for (int i = 0; i < nbLignes; i++) {
-            for (int j = 0; j < nbColonnes; j++) {
+        //Parcours de chaque cellule de la grille
+        for (int i = 0; i < nbLignes; i++) { // Parcours des lignes
+            for (int j = 0; j < nbColonnes; j++) { // Parcours des colonnes
+                
+                // Création d'un bouton graphique (CelluleGraphique) pour représenter une cellule
+                // Chaque cellule est associée à un objet de la matrice de la grille
                 CelluleGraphique bouton_cellule = new CelluleGraphique(grille.matriceCellules[i][j], 36, 36, i, j);
+                
+                // Ajout d'un ActionListener pour définir le comportement lors du clic sur le bouton
                 bouton_cellule.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         if (modeJoker) {
@@ -55,30 +79,52 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                             // Mode normal : activer la cellule et ses voisines
                             activerCelluleEtVoisines(bouton_cellule.i, bouton_cellule.j);
                         }
+                        // Actualise l'affichage du panneau (changements visuels)
                         PanneauGrille.revalidate();
                         PanneauGrille.repaint();
-                        nbCoups++;
-                        verifierVictoire();
+                        nbCoups++; 
+                        verifierVictoire(); 
                     }
                 });
                 PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
             }
         }
-        initialiserPartie();
+        initialiserPartie(); // Initialise la partie en configurant la grille pour le début du jeu
     }
         
+    /**
+     * Initialise une nouvelle partie en réinitialisant les compteurs et en configurant 
+     * la grille à un état de départ cohérent.
+     * Toutes les cellules sont éteintes et la grille est mélangée aléatoirement 
+     * en fonction du nombre de tours spécifié.
+     */
     public void initialiserPartie() {
-        nbCoups = 0;
+        nbCoups = 0; 
         Victoire.setText("");
-        grille.eteindreToutesLesCellules();
+        grille.eteindreToutesLesCellules(); 
         grille.melangerMatriceAleatoirement(nbTours);
     }
     
+    /**
+     * Active une cellule spécifique en mode Joker, c'est-à-dire que seule 
+     * la cellule choisie est modifiée (allumée ou éteinte).
+     * @param ligne    l'indice de la ligne de la cellule à activer.
+     * @param colonne  l'indice de la colonne de la cellule à activer.
+     */
     private void activerCelluleAvecJoker(int ligne, int colonne) {
         // Appeler la méthode activerCellule() sur la cellule choisie
         grille.matriceCellules[ligne][colonne].activerCellule();  // Inverser l'état de la cellule (allumer ou éteindre)
     }
     
+    /**
+     * Gère le clic sur une cellule graphique. Cette méthode active la cellule cliquée 
+     * ainsi que ses voisines, actualise l'affichage de la grille, 
+     * incrémente le compteur de coups, et vérifie si la victoire est atteinte.
+     *
+     * @param ligne   l'indice de la ligne de la cellule cliquée.
+     * @param colonne l'indice de la colonne de la cellule cliquée.
+     * @param bouton  le bouton graphique correspondant à la cellule cliquée.
+     */
     private void ClicCellule(int ligne, int colonne, CelluleGraphique bouton) {
         activerCelluleEtVoisines(ligne, colonne);
         PanneauGrille.revalidate();
@@ -87,11 +133,16 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         verifierVictoire();
     }
     
+    /**
+     * Active une cellule spécifique ainsi que ses voisines adjacentes (haut, bas, gauche, droite), 
+     * si elles sont dans les limites de la grille.
+     *
+     * @param ligne   l'indice de la ligne de la cellule à activer.
+     * @param colonne l'indice de la colonne de la cellule à activer.
+     */
     private void activerCelluleEtVoisines(int ligne, int colonne) {
-        // Activer la cellule choisie
         grille.matriceCellules[ligne][colonne].activerCellule();
 
-        // Activer les voisins si dans les limites
         if (ligne > 0) {
             grille.matriceCellules[ligne - 1][colonne].activerCellule(); // Haut
         }
@@ -106,6 +157,12 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Vérifie si le joueur a gagné ou perdu la partie.
+     * Si toutes les cellules sont éteintes, le joueur gagne, et un écran de victoire est affiché.
+     * Si le nombre de coups dépasse le maximum autorisé, le joueur perd, 
+     * et un écran de défaite est affiché.
+     */
     private void verifierVictoire() {
         if (grille.cellulesToutesEteintes()) {
             Victoire.setText("Félicitations, vous avez gagné en " + nbCoups + " coups !");
@@ -124,6 +181,10 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Désactive tous les boutons de la grille graphique, empêchant toute interaction.
+     * Cette méthode est utilisée à la fin de la partie, lorsque le joueur a gagné ou perdu.
+     */
     private void desactiverTousLesBoutons() {
         for (Component component : PanneauGrille.getComponents()) {
             if (component instanceof CelluleGraphique) {
@@ -132,6 +193,10 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Active le mode Joker. Ce mode permet au joueur de cliquer sur une cellule 
+     * pour l'activer sans affecter ses voisines.
+     */
     private void activerModeJoker(){
         modeJoker = true;  // Activer le mode Joker
     }

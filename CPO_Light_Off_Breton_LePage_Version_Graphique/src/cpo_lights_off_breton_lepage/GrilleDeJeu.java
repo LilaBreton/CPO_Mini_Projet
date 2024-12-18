@@ -15,16 +15,19 @@ public class GrilleDeJeu {
      int nbColonnes;
      CelluleLumineuse[][] matriceCellules;
     
-    // Creation de la méthode Grille de jeu
+     /**
+     * Constructeur de la classe GrilleDeJeu. Initialise une grille avec un nombre 
+     * de lignes et de colonnes spécifié, et crée une matrice de cellules lumineuses.
+     *
+     * @param p_nbLignes   le nombre de lignes de la grille.
+     * @param p_nbColonnes le nombre de colonnes de la grille.
+     */
     public GrilleDeJeu(int p_nbLignes, int p_nbColonnes) {
-        // Initialisation des attributs
+
         this.nbLignes = p_nbLignes;
         this.nbColonnes = p_nbColonnes;
-        
-        // Réserver la mémoire pour la matrice
         this.matriceCellules = new CelluleLumineuse[nbLignes][nbColonnes];
         
-        // Stocke cellule lumineuse dans chaque cellule de la matrice
         for (int i = 0; i<nbLignes; i++) {
             for (int j = 0; j<nbColonnes; j++) {
                 this.matriceCellules[i][j] = new CelluleLumineuse();
@@ -32,54 +35,66 @@ public class GrilleDeJeu {
         }
     }
     
-    // Création de la méthode eteindre toutes les cellules
+    /**
+     * Éteint toutes les cellules de la grille en appelant la méthode 
+     * `eteindreCellule()` sur chaque cellule de la matrice.
+     */
     public void eteindreToutesLesCellules() {
         for (int i = 0; i < nbLignes; i++) {
             for (int j = 0; j < nbColonnes; j++) {
-                this.matriceCellules[i][j].eteindreCellule(); // Éteindre chaque cellule
+                this.matriceCellules[i][j].eteindreCellule(); 
             }
         }
     }
     
-    // Nouvelle méthode pour activer les cellules en croix
+    /**
+     * Active une cellule donnée et ses voisines adjacentes en croix 
+     * (haut, bas, gauche, droite), si elles sont dans les limites de la grille.
+     *
+     * @param ligne   l'indice de la ligne de la cellule centrale.
+     * @param colonne l'indice de la colonne de la cellule centrale.
+     */
     public void activerCroix(int ligne, int colonne) {
-        // Activer la cellule centrale
         matriceCellules[ligne][colonne].activerCellule();
 
-        // Activer le haut si valide
         if (ligne > 0) {
             matriceCellules[ligne - 1][colonne].activerCellule();
         }
 
-        // Activer le bas si valide
         if (ligne < nbLignes - 1) {
             matriceCellules[ligne + 1][colonne].activerCellule();
         }
 
-        // Activer la gauche si valide
         if (colonne > 0) {
             matriceCellules[ligne][colonne - 1].activerCellule();
         }
 
-        // Activer la droite si valide
         if (colonne < nbColonnes - 1) {
             matriceCellules[ligne][colonne + 1].activerCellule();
         }
     }
 
-
-    // Mélanger la matrice de manière aléatoire
+    /**
+     * Mélange aléatoirement la grille en activant des motifs en croix à des positions 
+     * aléatoires un nombre donné de fois.
+     * @param nbTours le nombre d'itérations pour mélanger la grille.
+     */
     public void melangerMatriceAleatoirement(int nbTours) {
         Random random = new Random();
-        eteindreToutesLesCellules(); // Éteindre toutes les cellules avant de mélanger
+        eteindreToutesLesCellules(); 
         for (int n = 0; n < nbTours; n++) {
             int ligne = (int) (Math.random() * nbLignes);
             int colonne = (int) (Math.random() * nbColonnes);
-            activerCroix(ligne, colonne); // Utilise la méthode activerCroix pour mélanger
+            activerCroix(ligne, colonne); 
         }
     }
     
-    // Vérifier si toutes les cellules sont éteintes
+    /**
+     * Vérifie si toutes les cellules de la grille sont éteintes. 
+     * Une cellule est considérée éteinte si son état est `false`.
+     *
+     * @return `true` si toutes les cellules sont éteintes, sinon `false`.
+     */
     public boolean cellulesToutesEteintes() {
         for (int i = 0; i < nbLignes; i++) {
             for (int j = 0; j < nbColonnes; j++) {
@@ -91,7 +106,13 @@ public class GrilleDeJeu {
         return true;
     }
     
-    // Représentation visuelle de la grille
+     /**
+     * Retourne une représentation textuelle de la grille, affichant les indices 
+     * des lignes et colonnes ainsi que l'état de chaque cellule ('X' pour allumée, 
+     * 'O' pour éteinte).
+     *
+     * @return une chaîne de caractères représentant la grille.
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
