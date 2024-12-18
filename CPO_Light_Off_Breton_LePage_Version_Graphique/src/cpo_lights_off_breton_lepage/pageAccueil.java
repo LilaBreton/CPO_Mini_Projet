@@ -32,11 +32,14 @@ public class pageAccueil extends javax.swing.JFrame {
         AccueilNiveau = new javax.swing.JButton();
         Noms = new javax.swing.JLabel();
         Forme = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1540, 820));
 
         InterfAccueil.setBackground(new java.awt.Color(204, 204, 255));
+        InterfAccueil.setPreferredSize(new java.awt.Dimension(614, 418));
 
         Jeu.setFont(new java.awt.Font("Vivaldi", 1, 48)); // NOI18N
         Jeu.setText(" Jeu Light Off  ");
@@ -57,32 +60,38 @@ public class pageAccueil extends javax.swing.JFrame {
 
         Forme.setText("Les lumières s'éteignent et s'allument en forme de plus");
 
+        jLabel1.setText("Il existe des Jokers sur certains niveaux qui permettent d'éteindre ou d'allumer une seule case");
+
+        jLabel2.setText("Il vous suffit d'appuyer sur le bouton Joker puis de cliquer sur la case que vous saouhitez éteindre ou alumer");
+
         javax.swing.GroupLayout InterfAccueilLayout = new javax.swing.GroupLayout(InterfAccueil);
         InterfAccueil.setLayout(InterfAccueilLayout);
         InterfAccueilLayout.setHorizontalGroup(
             InterfAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InterfAccueilLayout.createSequentialGroup()
                 .addGroup(InterfAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InterfAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(InterfAccueilLayout.createSequentialGroup()
+                            .addGap(265, 265, 265)
+                            .addComponent(AccueilNiveau))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InterfAccueilLayout.createSequentialGroup()
+                            .addGap(548, 548, 548)
+                            .addComponent(Noms, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(InterfAccueilLayout.createSequentialGroup()
+                            .addGap(50, 50, 50)
+                            .addGroup(InterfAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Regles)
+                                .addComponent(jLabel1))))
                     .addGroup(InterfAccueilLayout.createSequentialGroup()
+                        .addGap(150, 150, 150)
                         .addGroup(InterfAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(InterfAccueilLayout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(Regles))
-                            .addGroup(InterfAccueilLayout.createSequentialGroup()
-                                .addGap(265, 265, 265)
-                                .addComponent(AccueilNiveau)))
-                        .addGap(260, 260, 260))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InterfAccueilLayout.createSequentialGroup()
-                        .addGap(548, 548, 548)
-                        .addComponent(Noms, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-            .addGroup(InterfAccueilLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addGroup(InterfAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Jeu)
-                    .addComponent(Eteindre)
-                    .addComponent(Forme))
-                .addGap(150, 150, 150))
+                            .addComponent(Jeu)
+                            .addComponent(Eteindre)
+                            .addComponent(Forme)))
+                    .addGroup(InterfAccueilLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel2)))
+                .addGap(35, 35, 35))
         );
         InterfAccueilLayout.setVerticalGroup(
             InterfAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,9 +104,13 @@ public class pageAccueil extends javax.swing.JFrame {
                 .addComponent(Eteindre)
                 .addGap(20, 20, 20)
                 .addComponent(Forme)
-                .addGap(60, 60, 60)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1)
+                .addGap(13, 13, 13)
+                .addComponent(jLabel2)
+                .addGap(35, 35, 35)
                 .addComponent(AccueilNiveau)
-                .addGap(80, 80, 80)
+                .addGap(40, 40, 40)
                 .addComponent(Noms)
                 .addContainerGap())
         );
@@ -109,14 +122,14 @@ public class pageAccueil extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(455, 455, 455)
                 .addComponent(InterfAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(457, Short.MAX_VALUE))
+                .addGap(455, 455, 455))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(177, 177, 177)
                 .addComponent(InterfAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addGap(177, 177, 177))
         );
 
         pack();
@@ -171,5 +184,7 @@ public class pageAccueil extends javax.swing.JFrame {
     private javax.swing.JLabel Jeu;
     private javax.swing.JLabel Noms;
     private javax.swing.JLabel Regles;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

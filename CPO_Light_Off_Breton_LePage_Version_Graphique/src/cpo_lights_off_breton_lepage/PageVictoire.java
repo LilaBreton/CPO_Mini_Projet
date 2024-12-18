@@ -82,14 +82,14 @@ public class PageVictoire extends javax.swing.JFrame {
                         .addGap(218, 218, 218)
                         .addComponent(NbCoups))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(185, 185, 185)
-                        .addComponent(Rejouer)
+                        .addGap(197, 197, 197)
+                        .addComponent(Rejouer, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(100, 100, 100)
-                        .addComponent(Quitter))
+                        .addComponent(Quitter, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(229, 229, 229)
                         .addComponent(Choix)))
-                .addGap(218, 218, 218))
+                .addContainerGap(197, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,15 +129,15 @@ public class PageVictoire extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void QuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitterActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_QuitterActionPerformed
+
     private void RejouerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RejouerActionPerformed
         PageNiveau Rejouer = new PageNiveau();
         Rejouer.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_RejouerActionPerformed
-
-    private void QuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitterActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_QuitterActionPerformed
 
     /**
      * @param args the command line arguments
