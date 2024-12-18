@@ -82,7 +82,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                         // Actualise l'affichage du panneau (changements visuels)
                         PanneauGrille.revalidate();
                         PanneauGrille.repaint();
-                        nbCoups++; 
+                        nbCoups++;
+                        CoupsRest.setText("Il vous reste : " + (nbCoupsMax-nbCoups) + " coups");
                         verifierVictoire(); 
                     }
                 });
@@ -100,7 +101,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
      */
     public void initialiserPartie() {
         nbCoups = 0; 
-        Victoire.setText("");
+        CoupsRest.setText("Vous avez : " + nbCoupsMax + " coups");
         grille.eteindreToutesLesCellules(); 
         grille.melangerMatriceAleatoirement(nbTours);
     }
@@ -211,7 +212,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     private void initComponents() {
 
         PanneauGrille = new javax.swing.JPanel();
-        Victoire = new javax.swing.JLabel();
+        CoupsRest = new javax.swing.JLabel();
         Quitter = new javax.swing.JButton();
         Retour = new javax.swing.JButton();
         Joker = new javax.swing.JButton();
@@ -231,9 +232,10 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         PanneauGrille.setLayout(new java.awt.GridLayout(1, 0));
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 500, 500));
 
-        Victoire.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        Victoire.setText("Victoire");
-        getContentPane().add(Victoire, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, 500, 30));
+        CoupsRest.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        CoupsRest.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        CoupsRest.setText("Nombre de coups restants");
+        getContentPane().add(CoupsRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, 500, 30));
 
         Quitter.setText("Quitter");
         Quitter.addActionListener(new java.awt.event.ActionListener() {
@@ -329,11 +331,11 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CoupsRest;
     private javax.swing.JButton Joker;
     private javax.swing.JLabel NbJoker;
     private javax.swing.JPanel PanneauGrille;
     private javax.swing.JButton Quitter;
     private javax.swing.JButton Retour;
-    private javax.swing.JLabel Victoire;
     // End of variables declaration//GEN-END:variables
 }
