@@ -35,7 +35,8 @@ public class PageVictoire extends javax.swing.JFrame {
         NbCoups = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1540, 820));
+        setMinimumSize(new java.awt.Dimension(800, 720));
+        setPreferredSize(new java.awt.Dimension(800, 720));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(614, 418));
@@ -114,16 +115,16 @@ public class PageVictoire extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(455, 455, 455)
+                .addGap(80, 80, 80)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(455, 455, 455))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(177, 177, 177)
+                .addGap(60, 60, 60)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(177, 177, 177))
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         pack();

@@ -36,17 +36,23 @@ public class pageAccueil extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1540, 820));
+        setMinimumSize(new java.awt.Dimension(800, 720));
+        setPreferredSize(new java.awt.Dimension(800, 720));
 
         InterfAccueil.setBackground(new java.awt.Color(204, 204, 255));
+        InterfAccueil.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         InterfAccueil.setPreferredSize(new java.awt.Dimension(614, 418));
+        InterfAccueil.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Jeu.setFont(new java.awt.Font("Vivaldi", 1, 48)); // NOI18N
         Jeu.setText(" Jeu Light Off  ");
+        InterfAccueil.add(Jeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, -1, -1));
 
         Regles.setText("Règles du jeu : ");
+        InterfAccueil.add(Regles, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
         Eteindre.setText("Le but du jeu est d'éteindre toutes les lumières (en noir)");
+        InterfAccueil.add(Eteindre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 186, -1, -1));
 
         AccueilNiveau.setText("Continuer");
         AccueilNiveau.addActionListener(new java.awt.event.ActionListener() {
@@ -54,82 +60,36 @@ public class pageAccueil extends javax.swing.JFrame {
                 AccueilNiveauActionPerformed(evt);
             }
         });
+        InterfAccueil.add(AccueilNiveau, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 338, -1, -1));
 
         Noms.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
         Noms.setText("Lila, Clarisse TDC");
+        InterfAccueil.add(Noms, new org.netbeans.lib.awtextra.AbsoluteConstraints(548, 401, 58, -1));
 
         Forme.setText("Les lumières s'éteignent et s'allument en forme de plus");
+        InterfAccueil.add(Forme, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 222, -1, -1));
 
         jLabel1.setText("Il existe des Jokers sur certains niveaux qui permettent d'éteindre ou d'allumer une seule case");
+        InterfAccueil.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 258, -1, -1));
 
-        jLabel2.setText("Il vous suffit d'appuyer sur le bouton Joker puis de cliquer sur la case que vous saouhitez éteindre ou alumer");
-
-        javax.swing.GroupLayout InterfAccueilLayout = new javax.swing.GroupLayout(InterfAccueil);
-        InterfAccueil.setLayout(InterfAccueilLayout);
-        InterfAccueilLayout.setHorizontalGroup(
-            InterfAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InterfAccueilLayout.createSequentialGroup()
-                .addGroup(InterfAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(InterfAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(InterfAccueilLayout.createSequentialGroup()
-                            .addGap(265, 265, 265)
-                            .addComponent(AccueilNiveau))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InterfAccueilLayout.createSequentialGroup()
-                            .addGap(548, 548, 548)
-                            .addComponent(Noms, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(InterfAccueilLayout.createSequentialGroup()
-                            .addGap(50, 50, 50)
-                            .addGroup(InterfAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Regles)
-                                .addComponent(jLabel1))))
-                    .addGroup(InterfAccueilLayout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addGroup(InterfAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Jeu)
-                            .addComponent(Eteindre)
-                            .addComponent(Forme)))
-                    .addGroup(InterfAccueilLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel2)))
-                .addGap(35, 35, 35))
-        );
-        InterfAccueilLayout.setVerticalGroup(
-            InterfAccueilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InterfAccueilLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(Jeu)
-                .addGap(50, 50, 50)
-                .addComponent(Regles)
-                .addGap(20, 20, 20)
-                .addComponent(Eteindre)
-                .addGap(20, 20, 20)
-                .addComponent(Forme)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1)
-                .addGap(13, 13, 13)
-                .addComponent(jLabel2)
-                .addGap(35, 35, 35)
-                .addComponent(AccueilNiveau)
-                .addGap(40, 40, 40)
-                .addComponent(Noms)
-                .addContainerGap())
-        );
+        jLabel2.setText("Il vous suffit d'appuyer sur le bouton Joker puis de cliquer sur la case que vous saouhitez éteindre ou allumer");
+        InterfAccueil.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 287, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(455, 455, 455)
+                .addGap(80, 80, 80)
                 .addComponent(InterfAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(455, 455, 455))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(177, 177, 177)
+                .addGap(60, 60, 60)
                 .addComponent(InterfAccueil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(177, 177, 177))
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         pack();

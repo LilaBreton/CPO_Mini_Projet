@@ -37,13 +37,16 @@ public class PageNiveau extends javax.swing.JFrame {
         PhraseIntro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1540, 820));
+        setMinimumSize(new java.awt.Dimension(800, 720));
+        setPreferredSize(new java.awt.Dimension(800, 720));
 
         InterfNiveau.setBackground(new java.awt.Color(204, 255, 204));
         InterfNiveau.setPreferredSize(new java.awt.Dimension(614, 418));
+        InterfNiveau.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Choix.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Choix.setText("Choix Niveau");
+        InterfNiveau.add(Choix, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, -1, -1));
 
         Retour.setText("Retour");
         Retour.addActionListener(new java.awt.event.ActionListener() {
@@ -51,6 +54,7 @@ public class PageNiveau extends javax.swing.JFrame {
                 RetourActionPerformed(evt);
             }
         });
+        InterfNiveau.add(Retour, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 380, -1, -1));
 
         NivFacile.setText("Niveau Facile");
         NivFacile.addActionListener(new java.awt.event.ActionListener() {
@@ -58,6 +62,7 @@ public class PageNiveau extends javax.swing.JFrame {
                 NivFacileActionPerformed(evt);
             }
         });
+        InterfNiveau.add(NivFacile, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 125, 150, -1));
 
         NivInter.setText("Niveau Intermédiaire");
         NivInter.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +70,7 @@ public class PageNiveau extends javax.swing.JFrame {
                 NivInterActionPerformed(evt);
             }
         });
+        InterfNiveau.add(NivInter, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 204, 150, -1));
 
         NivDiff.setText("Niveau Difficile");
         NivDiff.addActionListener(new java.awt.event.ActionListener() {
@@ -72,90 +78,36 @@ public class PageNiveau extends javax.swing.JFrame {
                 NivDiffActionPerformed(evt);
             }
         });
+        InterfNiveau.add(NivDiff, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 279, 150, -1));
 
         RegleFac.setText("Grille 4x4, vous avez 10 coups et 2 Joker");
+        InterfNiveau.add(RegleFac, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 168, -1, -1));
 
         RegleInt.setText("Grille 7x7, vous avez 15 coups et 1 Joker");
+        InterfNiveau.add(RegleInt, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 245, -1, -1));
 
         RegleDif.setText("Grille 10x10, vous avez 20 coups et pas de Joker");
+        InterfNiveau.add(RegleDif, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 320, -1, -1));
 
         PhraseIntro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         PhraseIntro.setText("Veuillez choisir le niveau de difficulté que vous préfèrez :");
-
-        javax.swing.GroupLayout InterfNiveauLayout = new javax.swing.GroupLayout(InterfNiveau);
-        InterfNiveau.setLayout(InterfNiveauLayout);
-        InterfNiveauLayout.setHorizontalGroup(
-            InterfNiveauLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InterfNiveauLayout.createSequentialGroup()
-                .addGroup(InterfNiveauLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(InterfNiveauLayout.createSequentialGroup()
-                        .addGap(250, 250, 250)
-                        .addComponent(Choix))
-                    .addGroup(InterfNiveauLayout.createSequentialGroup()
-                        .addGap(202, 202, 202)
-                        .addComponent(RegleInt))
-                    .addGroup(InterfNiveauLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(Retour))
-                    .addGroup(InterfNiveauLayout.createSequentialGroup()
-                        .addGap(181, 181, 181)
-                        .addComponent(RegleDif))
-                    .addGroup(InterfNiveauLayout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(PhraseIntro))
-                    .addGroup(InterfNiveauLayout.createSequentialGroup()
-                        .addGap(202, 202, 202)
-                        .addComponent(RegleFac))
-                    .addGroup(InterfNiveauLayout.createSequentialGroup()
-                        .addGap(232, 232, 232)
-                        .addComponent(NivInter, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(InterfNiveauLayout.createSequentialGroup()
-                        .addGap(232, 232, 232)
-                        .addComponent(NivFacile, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(InterfNiveauLayout.createSequentialGroup()
-                        .addGap(232, 232, 232)
-                        .addComponent(NivDiff, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(130, 130, 130))
-        );
-        InterfNiveauLayout.setVerticalGroup(
-            InterfNiveauLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InterfNiveauLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(Choix)
-                .addGap(20, 20, 20)
-                .addComponent(PhraseIntro)
-                .addGap(20, 20, 20)
-                .addComponent(NivFacile)
-                .addGap(20, 20, 20)
-                .addComponent(RegleFac)
-                .addGap(20, 20, 20)
-                .addComponent(NivInter)
-                .addGap(18, 18, 18)
-                .addComponent(RegleInt, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(NivDiff)
-                .addGap(18, 18, 18)
-                .addComponent(RegleDif)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(Retour)
-                .addGap(15, 15, 15))
-        );
+        InterfNiveau.add(PhraseIntro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 85, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(455, 455, 455)
+                .addGap(80, 80, 80)
                 .addComponent(InterfNiveau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(455, 455, 455))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(177, 177, 177)
+                .addGap(60, 60, 60)
                 .addComponent(InterfNiveau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(177, 177, 177))
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         pack();

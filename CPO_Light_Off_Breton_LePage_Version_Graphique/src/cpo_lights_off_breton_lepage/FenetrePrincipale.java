@@ -108,7 +108,6 @@ public class FenetrePrincipale extends javax.swing.JFrame {
     
     private void verifierVictoire() {
         if (grille.cellulesToutesEteintes()) {
-            Victoire.setText("Félicitations, vous avez gagné en " + nbCoups + " coups !");
             System.out.println("Felicitations, vous avez gagne !");
             System.out.println("Vous avez effectue " + nbCoups + " coups");
             desactiverTousLesBoutons();
@@ -116,7 +115,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
             victoire.setVisible(true);
             this.dispose();
         }else if (nbCoups >= nbCoupsMax) {
-            Victoire.setText("Dommage, vous avez atteint le nombre maximal de coups (" + nbCoupsMax + ") !");
+            System.out.println("Dommage, vous avez perdu !");
+            System.out.println("Vous avez depasse le nombre de coups maximal");
             desactiverTousLesBoutons();
             PageDefaite defaite = new PageDefaite();
             defaite.setVisible(true);
@@ -154,7 +154,8 @@ public class FenetrePrincipale extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1540, 820));
+        setMinimumSize(new java.awt.Dimension(800, 720));
+        setPreferredSize(new java.awt.Dimension(800, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PanneauGrille.setBackground(new java.awt.Color(255, 255, 255));
@@ -163,11 +164,11 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         PanneauGrille.setPreferredSize(new java.awt.Dimension(700, 700));
         PanneauGrille.setVerifyInputWhenFocusTarget(false);
         PanneauGrille.setLayout(new java.awt.GridLayout(1, 0));
-        getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 500, 500));
+        getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 500, 500));
 
         Victoire.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         Victoire.setText("Victoire");
-        getContentPane().add(Victoire, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 580, 500, 30));
+        getContentPane().add(Victoire, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, 500, 30));
 
         Quitter.setText("Quitter");
         Quitter.addActionListener(new java.awt.event.ActionListener() {
@@ -175,7 +176,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 QuitterActionPerformed(evt);
             }
         });
-        getContentPane().add(Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 620, -1, -1));
+        getContentPane().add(Quitter, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 600, -1, -1));
 
         Retour.setText("Retour");
         Retour.addActionListener(new java.awt.event.ActionListener() {
@@ -183,7 +184,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 RetourActionPerformed(evt);
             }
         });
-        getContentPane().add(Retour, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 620, -1, -1));
+        getContentPane().add(Retour, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 600, -1, -1));
 
         Joker.setText("Joker");
         Joker.addActionListener(new java.awt.event.ActionListener() {
@@ -191,10 +192,10 @@ public class FenetrePrincipale extends javax.swing.JFrame {
                 JokerActionPerformed(evt);
             }
         });
-        getContentPane().add(Joker, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 90, -1, -1));
+        getContentPane().add(Joker, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 70, -1, -1));
 
         NbJoker.setText("Nombre Joker");
-        getContentPane().add(NbJoker, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 120, -1, 100));
+        getContentPane().add(NbJoker, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 100, -1, 100));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
