@@ -10,7 +10,10 @@ package cpo_lights_off_breton_lepage;
 public class PageVictoire extends javax.swing.JFrame {
 
     /**
-     * Creates new form PageVictoire
+     * Constructeur de la classe PageVictoire. Initialise les composants graphiques 
+     * de la fenêtre et affiche le nombre de coups effectués par le joueur.
+     *
+     * @param nbCoups le nombre de coups effectués par le joueur durant la partie.
      */
     public PageVictoire(int nbCoups) {
         initComponents();

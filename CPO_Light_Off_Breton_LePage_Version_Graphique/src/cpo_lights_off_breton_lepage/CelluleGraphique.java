@@ -18,7 +18,16 @@ public class CelluleGraphique extends JButton {
     int j;
     CelluleLumineuse celluleLumineuseAssociee;
     
-    // constructeur (appelé depuis FenetrePrincipale)
+    /**
+     * Constructeur de la classe CelluleGraphique.
+     * Initialise une cellule graphique avec les dimensions spécifiées, ses coordonnées, 
+     * et la cellule lumineuse associée.
+     * @param celluleLumineuseAssociee la cellule lumineuse associée à cette cellule graphique.
+     * @param l  largeur de la cellule graphique.
+     * @param h  hauteur de la cellule graphique.
+     * @param i  indice de ligne de la cellule dans une grille.
+     * @param j  indice de colonne de la cellule dans une grille.
+     */
     public CelluleGraphique(CelluleLumineuse celluleLumineuseAssociee, int l,int h, int i, int j) {
         this.largeur = l;
         this.hauteur = h;
@@ -26,7 +35,15 @@ public class CelluleGraphique extends JButton {
         this.j = j;
         this.celluleLumineuseAssociee = celluleLumineuseAssociee;
     }
-    // Methode gérant le dessin de la cellule
+    
+    /**
+     * Surcharge de la méthode {@code paintComponent} pour personnaliser l'affichage graphique 
+     * d'une cellule graphique. Dessine un arrière-plan blanc, ajuste l'affichage du texte 
+     * et affiche une ellipse représentant l'état de la cellule lumineuse associée.
+     *
+     * @param g l'objet {@code Graphics} utilisé pour dessiner les composants graphiques.
+     */
+    
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

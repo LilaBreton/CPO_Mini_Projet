@@ -15,12 +15,24 @@ public class Partie {
     private int maxCoups;
     private GrilleDeJeu grille;
 
+    /**
+     * Constructeur de la classe Partie. Initialise les variables d'état de la partie.
+     * 
+     * @param grille la grille de jeu qui sera utilisée dans la partie.
+     * @param maxCoups le nombre maximal de coups que le joueur peut effectuer durant la partie.
+     */
     public Partie(GrilleDeJeu grille, int maxCoups) {
         this.nbCoups = 0;
         this.grille = grille;
         this.maxCoups = maxCoups;
     }
 
+    /**
+     * Initialise la partie en mélangeant la matrice de la grille de manière aléatoire
+     * et en s'assurant qu'il n'y a pas de cellules allumées au départ.
+     * La méthode effectue des mélanges successifs tant que toutes les cellules sont éteintes,
+     * garantissant que la partie commence avec un état de grille valide.
+     */
     public void initialiserPartie() {
         grille.melangerMatriceAleatoirement(10); // Mélange initial
         while (grille.cellulesToutesEteintes()) { // Si toutes les cellules sont éteintes
@@ -28,7 +40,11 @@ public class Partie {
         }
 }
 
-    // Lance la partie interactive
+    /**
+     * Lance la partie interactive. Demande au joueur d'entrer les coordonnées d'une cellule,
+     * active cette cellule et ses voisines, et affiche l'état de la grille après chaque coup.
+     * La partie se termine lorsque toutes les cellules sont éteintes ou que le nombre maximal de coups est atteint.
+     */
     public void lancerPartie() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Debut de la partie ! Voici l'etat initial de la grille :");
@@ -71,12 +87,15 @@ public class Partie {
         scanner.close();
     }
 
-    // Méthode pour activer une cellule et ses voisines
+    /**
+     * Active la cellule spécifiée et ses voisines directes (haut, bas, gauche, droite).
+     * 
+     * @param ligne la ligne de la cellule à activer.
+     * @param colonne la colonne de la cellule à activer.
+     */
     private void activerCelluleEtVoisines(int ligne, int colonne) {
-        // Activer la cellule choisie
         grille.matriceCellules[ligne][colonne].activerCellule();
 
-        // Activer les voisins si dans les limites
         if (ligne > 0) {
             grille.matriceCellules[ligne - 1][colonne].activerCellule(); // Haut
         }
